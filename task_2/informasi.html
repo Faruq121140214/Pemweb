@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Informasi Pendaftar</title>
+    <link rel="stylesheet" href="informasi.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Detail Informasi Pendaftar</h2>
+
+        <div class="info-box">
+            <p>Nama Lengkap : <strong><?php echo $_GET['name']; ?></strong></p>
+            <p>Email : <strong><?php echo $_GET['email']; ?></strong></p>
+            <p>Nomor Telepon : <strong><?php echo $_GET['phone']; ?></strong></p>
+        </div>
+
+        <a href="pendaftaran.html">Kembali ke Pendaftaran</a>
+    </div>
+
+</body>
+</html>
