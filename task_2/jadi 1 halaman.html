@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: antiquewhite;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #000000;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        input[type="text"], input[type="email"], input[type="submit"] {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .info-box {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        td {
+            text-align: left;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn-container a {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn-container a:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Halaman Pendaftaran -->
+    <div id="form-container" class="container">
+        <h2>Form Pendaftaran</h2>
+        <form id="registration-form">
+            <label for="name">Nama Lengkap:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Nomor Telepon:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <input type="submit" value="Daftar">
+        </form>
+    </div>
+
+    <!-- Halaman Detail Informasi Pendaftar -->
+    <div id="detail-container" class="container hidden">
+        <h2>Detail Informasi Pendaftar</h2>
+
+        <div class="info-box">
+            <p>Nama Lengkap: <strong id="detail-name"></strong></p>
+            <p>Email: <strong id="detail-email"></strong></p>
+            <p>Nomor Telepon: <strong id="detail-phone"></strong></p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Informasi</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nama</td>
+                    <td id="table-name"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td id="table-email"></td>
+                </tr>
+                <tr>
+                    <td>Nomor Telepon</td>
+                    <td id="table-phone"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btn-container">
+            <a href="#" id="back-to-form">Kembali ke Pendaftaran</a>
+        </div>
+    </div>
+
+    <script>
+        // Ambil elemen HTML
+        const formContainer = document.getElementById('form-container');
+        const detailContainer = document.getElementById('detail-container');
+        const registrationForm = document.getElementById('registration-form');
+        const backToFormButton = document.getElementById('back-to-form');
+
+        // Elemen untuk menampilkan data di halaman kedua
+        const detailName = document.getElementById('detail-name');
+        const detailEmail = document.getElementById('detail-email');
+        const detailPhone = document.getElementById('detail-phone');
+        const tableName = document.getElementById('table-name');
+        const tableEmail = document.getElementById('table-email');
+        const tablePhone = document.getElementById('table-phone');
+
+        // Event listener untuk form submit
+        registrationForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah halaman reload
+
+            // Ambil nilai dari input form
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            // Set nilai ke halaman detail
+            detailName.textContent = name;
+            detailEmail.textContent = email;
+            detailPhone.textContent = phone;
+            tableName.textContent = name;
+            tableEmail.textContent = email;
+            tablePhone.textContent = phone;
+
+            // Sembunyikan form dan tampilkan halaman detail
+            formContainer.classList.add('hidden');
+            detailContainer.classList.remove('hidden');
+        });
+
+        // Event listener untuk kembali ke form pendaftaran
+        backToFormButton.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            // Reset form input
+            registrationForm.reset();
+
+            // Tampilkan form dan sembunyikan halaman detail
+            formContainer.classList.remove('hidden');
+            detailContainer.classList.add('hidden');
+        });
+    </script>
+
+</body>
+</html>
