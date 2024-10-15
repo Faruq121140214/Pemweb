@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+}
+
+body.home {
+    background-image: url('bumi.jpg');
+}
+
+body.profil {
+    background-image: url('winter.jpg');
+}
+
+body.github {
+    background-image: url('snow.jpg');
+}
+
+body.keahlian {
+    background-image: url('langit.jpg');
+}
+
+nav {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(85, 85, 85, 0.8);
+    border-radius: 4px;
+}
+
+section {
+    flex: 1;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: rgba(244, 244, 244, 0.9);
+    border-radius: 8px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+@media (min-width: 1025px) {
+    nav {
+        position: fixed; 
+        left: 0; 
+        top: 0;
+        height: 100%; 
+        width: 200px; 
+    }
+
+    nav ul {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    section {
+        margin-left: 220px; 
+        width: calc(100% - 220px); 
+    }
+}
+
+@media (max-width: 1024px) {
+    header {
+        margin-bottom: 20px; 
+    }
+
+    nav {
+        position: sticky; 
+        top: 0; 
+        z-index: 10; 
+        background-color: rgba(51, 51, 51, 0.8); 
+    }
+
+    nav ul {
+        flex-direction: row; 
+        justify-content: center; 
+    }
+
+    nav ul li {
+        margin: 0 10px; 
+    }
+}
